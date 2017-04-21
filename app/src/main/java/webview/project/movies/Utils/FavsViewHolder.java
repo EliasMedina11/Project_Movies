@@ -12,17 +12,20 @@ import webview.project.movies.Entities.MovieData;
 import webview.project.movies.Entities.PersistentMovieData;
 import webview.project.movies.R;
 
-/**
- * Created by Elias on 20/04/2017.
- */
 
-public class FavsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+public class FavsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public ImageView moviePoster;
     RelativeLayout layoutItemGrid;
     public Context context;
     PersistentMovieData movie;
 
-
+    private String original_title;
+    private String overview;
+    private String release_date;
+    private Double vote_average;
+    private String backdrop_path;
+    private String poster_path;
+    private Integer id;
     public FavsViewHolder(View v, Context context) {
         super(v);
         this.context = context;
@@ -32,15 +35,31 @@ public class FavsViewHolder extends RecyclerView.ViewHolder implements View.OnCl
 
     public void setOnClickListeners(PersistentMovieData movie) {
         layoutItemGrid.setOnClickListener(this);
-        this.movie  = movie;
+        this.movie = movie;
     }
+
     @Override
     public void onClick(View view) {
         Intent i = new Intent(context, MovieDetailActivity.class);
-        int id = movie.getId();
+        getMovieDetailItems(movie);
+        i.putExtra("title", original_title);
+        i.putExtra("overview", overview);
+        i.putExtra("date", release_date);
+        i.putExtra("vote", vote_average);
+        i.putExtra("backdrop", backdrop_path);
         i.putExtra("id", id);
-
+        i.putExtra("poster", poster_path);
         context.startActivity(i);
+
+    }
+    public void getMovieDetailItems(PersistentMovieData movie) {
+        original_title = movie.getTitle();
+        overview = movie.getOverview();
+        release_date = movie.getRelease_date();
+        vote_average = movie.getVote_average();
+        backdrop_path = movie.getBackdrop_path();
+        poster_path = movie.getPoster_path();
+        id = movie.getId();
     }
 }
 

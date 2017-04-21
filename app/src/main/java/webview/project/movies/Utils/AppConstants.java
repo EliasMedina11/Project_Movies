@@ -6,9 +6,7 @@ import android.net.NetworkInfo;
 
 import webview.project.movies.R;
 
-/**
- * Created by lfarias on 4/13/17.
- */
+
 public class AppConstants {
 
     public static final String API_KEY = "589e10387e0ca4ece633f5836fb0383f";
@@ -23,7 +21,6 @@ public class AppConstants {
     public static final String BASE_POSTER_GRID_URL = "https://image.tmdb.org/t/p/w780";
     public static final String BASE_BACKDROP_URL = "https://image.tmdb.org/t/p/w780";
     public static final String YOUTUBE_KEY = "AIzaSyDE18opuRo8CvyJqQf0AfiMBT_xwvTxaSE";
-
 
     public static boolean isNetworkConnected(Context context) {
 

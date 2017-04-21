@@ -1,19 +1,36 @@
 package webview.project.movies.Entities;
 
-import android.graphics.Bitmap;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by LUCAS on 20/04/2017.
- */
+
 public class PersistentMovieData {
     private Integer id;
     private String overview;
     private String release_date;
     private String original_title;
     private String original_language;
+    private String poster_path;
+
+    public String getPoster_path() {
+        return poster_path;
+    }
+
+    public void setPoster_path(String poster_path) {
+        this.poster_path = poster_path;
+    }
+
+    public String getBackdrop_path() {
+        return backdrop_path;
+    }
+
+    public void setBackdrop_path(String backdrop_path) {
+        this.backdrop_path = backdrop_path;
+    }
+
+    private String backdrop_path;
 
     public Integer getVote_count() {
         return vote_count;
